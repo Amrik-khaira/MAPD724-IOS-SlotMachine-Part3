@@ -1,0 +1,6 @@
+framework module Pods_Slot_Machine {
+  umbrella header "Pods-Slot Machine-umbrella.h"
+
+  export *
+  module * { export * }
+}

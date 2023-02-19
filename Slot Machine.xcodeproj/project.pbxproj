@@ -10,6 +10,7 @@
 		B04BA0F7F97AD58C391406F6 /* Pods_Slot_Machine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF380298885B640721EA0FD /* Pods_Slot_Machine.framework */; };
 		E12BEF1529A235350052EFE5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12BEF1429A235350052EFE5 /* LoginVC.swift */; };
 		E12BEF1729A2354B0052EFE5 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12BEF1629A2354B0052EFE5 /* SignupVC.swift */; };
+		E12BEF1A29A256220052EFE5 /* LeaderboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12BEF1929A256220052EFE5 /* LeaderboardVC.swift */; };
 		E1A7FAC0297B785A000F6030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FABF297B785A000F6030 /* AppDelegate.swift */; };
 		E1A7FAC2297B785A000F6030 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FAC1297B785A000F6030 /* SceneDelegate.swift */; };
 		E1A7FAC4297B785A000F6030 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FAC3297B785A000F6030 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 		E12BEF1429A235350052EFE5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		E12BEF1629A2354B0052EFE5 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		E12BEF1829A241AB0052EFE5 /* Slot Machine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Slot Machine.entitlements"; sourceTree = "<group>"; };
+		E12BEF1929A256220052EFE5 /* LeaderboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardVC.swift; sourceTree = "<group>"; };
 		E1A7FABC297B785A000F6030 /* Slot Machine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slot Machine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1A7FABF297B785A000F6030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1A7FAC1297B785A000F6030 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				E12BEF1429A235350052EFE5 /* LoginVC.swift */,
 				E12BEF1629A2354B0052EFE5 /* SignupVC.swift */,
 				E1A7FAC3297B785A000F6030 /* ViewController.swift */,
+				E12BEF1929A256220052EFE5 /* LeaderboardVC.swift */,
 				E1C6FCAB298E438E00EBD8FA /* CongratulationVC.swift */,
 				E1C6FCAF298E454500EBD8FA /* WiningScene.swift */,
 				E1C6FCAD298E451200EBD8FA /* WiningScene.sks */,
@@ -274,6 +277,7 @@
 				E1A7FAC4297B785A000F6030 /* ViewController.swift in Sources */,
 				E1C6FCAC298E438E00EBD8FA /* CongratulationVC.swift in Sources */,
 				E1A7FADA297B9191000F6030 /* CustomView.swift in Sources */,
+				E12BEF1A29A256220052EFE5 /* LeaderboardVC.swift in Sources */,
 				E1A7FAC0297B785A000F6030 /* AppDelegate.swift in Sources */,
 				E12BEF1529A235350052EFE5 /* LoginVC.swift in Sources */,
 				E12BEF1729A2354B0052EFE5 /* SignupVC.swift in Sources */,
