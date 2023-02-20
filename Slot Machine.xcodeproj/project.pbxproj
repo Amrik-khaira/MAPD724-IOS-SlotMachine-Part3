@@ -11,6 +11,8 @@
 		E12BEF1529A235350052EFE5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12BEF1429A235350052EFE5 /* LoginVC.swift */; };
 		E12BEF1729A2354B0052EFE5 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12BEF1629A2354B0052EFE5 /* SignupVC.swift */; };
 		E12BEF1A29A256220052EFE5 /* LeaderboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12BEF1929A256220052EFE5 /* LeaderboardVC.swift */; };
+		E12BEF1C29A286850052EFE5 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12BEF1B29A286850052EFE5 /* SettingVC.swift */; };
+		E12BEF2029A290BA0052EFE5 /* Slot Machine Documnetations.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E12BEF1F29A290BA0052EFE5 /* Slot Machine Documnetations.pdf */; };
 		E1A7FAC0297B785A000F6030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FABF297B785A000F6030 /* AppDelegate.swift */; };
 		E1A7FAC2297B785A000F6030 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FAC1297B785A000F6030 /* SceneDelegate.swift */; };
 		E1A7FAC4297B785A000F6030 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FAC3297B785A000F6030 /* ViewController.swift */; };
@@ -27,9 +29,9 @@
 		E1C6FCAC298E438E00EBD8FA /* CongratulationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C6FCAB298E438E00EBD8FA /* CongratulationVC.swift */; };
 		E1C6FCAE298E451200EBD8FA /* WiningScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E1C6FCAD298E451200EBD8FA /* WiningScene.sks */; };
 		E1C6FCB0298E454500EBD8FA /* WiningScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C6FCAF298E454500EBD8FA /* WiningScene.swift */; };
-		E1C6FD5D298E561B00EBD8FA /* confetti.atlas in Resources */ = {isa = PBXBuildFile; fileRef = E1C6FD5C298E561B00EBD8FA /* confetti.atlas */; };
 		E1C6FD61298E7DCC00EBD8FA /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1C6FD60298E7DCC00EBD8FA /* win.mp3 */; };
 		E1C6FD63298E7FAD00EBD8FA /* lossbet.wav in Resources */ = {isa = PBXBuildFile; fileRef = E1C6FD62298E7FAD00EBD8FA /* lossbet.wav */; };
+		E1C804F629A2F712004F9EC9 /* confetti.atlas in Resources */ = {isa = PBXBuildFile; fileRef = E1C804F529A2F712004F9EC9 /* confetti.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		E12BEF1629A2354B0052EFE5 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		E12BEF1829A241AB0052EFE5 /* Slot Machine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Slot Machine.entitlements"; sourceTree = "<group>"; };
 		E12BEF1929A256220052EFE5 /* LeaderboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardVC.swift; sourceTree = "<group>"; };
+		E12BEF1B29A286850052EFE5 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		E12BEF1F29A290BA0052EFE5 /* Slot Machine Documnetations.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Slot Machine Documnetations.pdf"; sourceTree = "<group>"; };
 		E1A7FABC297B785A000F6030 /* Slot Machine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slot Machine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1A7FABF297B785A000F6030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1A7FAC1297B785A000F6030 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,9 +61,9 @@
 		E1C6FCAB298E438E00EBD8FA /* CongratulationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationVC.swift; sourceTree = "<group>"; };
 		E1C6FCAD298E451200EBD8FA /* WiningScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WiningScene.sks; sourceTree = "<group>"; };
 		E1C6FCAF298E454500EBD8FA /* WiningScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiningScene.swift; sourceTree = "<group>"; };
-		E1C6FD5C298E561B00EBD8FA /* confetti.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = confetti.atlas; path = ../../../Downloads/AnimatedBearSwift/confetti.atlas; sourceTree = "<group>"; };
 		E1C6FD60298E7DCC00EBD8FA /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = win.mp3; sourceTree = "<group>"; };
 		E1C6FD62298E7FAD00EBD8FA /* lossbet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lossbet.wav; sourceTree = "<group>"; };
+		E1C804F529A2F712004F9EC9 /* confetti.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = confetti.atlas; sourceTree = "<group>"; };
 		ED4BC6DF0FD8978706259BF9 /* Pods-Slot Machine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slot Machine.debug.xcconfig"; path = "Target Support Files/Pods-Slot Machine/Pods-Slot Machine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +121,7 @@
 				E1AD0E0A29A08404004268E4 /* GoogleService-Info.plist */,
 				E1C6FC9E298E321D00EBD8FA /* Sounds */,
 				E1A7FABF297B785A000F6030 /* AppDelegate.swift */,
-				E1C6FD5C298E561B00EBD8FA /* confetti.atlas */,
+				E1C804F529A2F712004F9EC9 /* confetti.atlas */,
 				E1C6FCA3298E32DC00EBD8FA /* Utility.swift */,
 				E1A7FAC1297B785A000F6030 /* SceneDelegate.swift */,
 				E12BEF1429A235350052EFE5 /* LoginVC.swift */,
@@ -126,6 +130,7 @@
 				E12BEF1929A256220052EFE5 /* LeaderboardVC.swift */,
 				E1C6FCAB298E438E00EBD8FA /* CongratulationVC.swift */,
 				E1C6FCAF298E454500EBD8FA /* WiningScene.swift */,
+				E12BEF1B29A286850052EFE5 /* SettingVC.swift */,
 				E1C6FCAD298E451200EBD8FA /* WiningScene.sks */,
 				E1A7FAD9297B9191000F6030 /* CustomView.swift */,
 				E1A7FAC5297B785A000F6030 /* Main.storyboard */,
@@ -140,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				E1C6FCA1298E322C00EBD8FA /* Spin.mp3 */,
+				E12BEF1F29A290BA0052EFE5 /* Slot Machine Documnetations.pdf */,
 				E1C6FD62298E7FAD00EBD8FA /* lossbet.wav */,
 				E1C6FCA5298E35A400EBD8FA /* bet.mp3 */,
 				E1C6FD60298E7DCC00EBD8FA /* win.mp3 */,
@@ -210,14 +216,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1C6FCAE298E451200EBD8FA /* WiningScene.sks in Resources */,
+				E12BEF2029A290BA0052EFE5 /* Slot Machine Documnetations.pdf in Resources */,
 				E1C6FCA0298E322700EBD8FA /* wining.mp3 in Resources */,
 				E1AD0E0B29A08404004268E4 /* GoogleService-Info.plist in Resources */,
 				E1A7FACC297B785B000F6030 /* LaunchScreen.storyboard in Resources */,
 				E1A7FAC9297B785B000F6030 /* Assets.xcassets in Resources */,
 				E1A7FAC7297B785A000F6030 /* Main.storyboard in Resources */,
+				E1C804F629A2F712004F9EC9 /* confetti.atlas in Resources */,
 				E1C6FCA2298E322C00EBD8FA /* Spin.mp3 in Resources */,
 				E1C6FCA8298E360C00EBD8FA /* loss.mp3 in Resources */,
-				E1C6FD5D298E561B00EBD8FA /* confetti.atlas in Resources */,
 				E1C6FD61298E7DCC00EBD8FA /* win.mp3 in Resources */,
 				E1C6FD63298E7FAD00EBD8FA /* lossbet.wav in Resources */,
 				E1C6FCA6298E35A400EBD8FA /* bet.mp3 in Resources */,
@@ -280,6 +287,7 @@
 				E12BEF1A29A256220052EFE5 /* LeaderboardVC.swift in Sources */,
 				E1A7FAC0297B785A000F6030 /* AppDelegate.swift in Sources */,
 				E12BEF1529A235350052EFE5 /* LoginVC.swift in Sources */,
+				E12BEF1C29A286850052EFE5 /* SettingVC.swift in Sources */,
 				E12BEF1729A2354B0052EFE5 /* SignupVC.swift in Sources */,
 				E1C6FCB0298E454500EBD8FA /* WiningScene.swift in Sources */,
 				E1A7FAC2297B785A000F6030 /* SceneDelegate.swift in Sources */,

@@ -13,13 +13,16 @@ import  FirebaseDatabase
 import FirebaseAuth
 
 class LeaderboardVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
+    //outlet and connections
     var ref = DatabaseReference()
     @IBOutlet weak var tblViewUserRank: UITableView!
     var userList = [users]()
+    
+    //MARK: get all user data and parse in codeable
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-       
+        Utility.shared.showActivityIndicatory(vc: self)
             self.ref = Database.database().reference()
            ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
                for child in snapshot.children {
@@ -31,6 +34,7 @@ class LeaderboardVC: UIViewController ,UITableViewDelegate,UITableViewDataSource
                
                self.userList = self.userList.sorted { $0.wings ?? 0  > $1.wings ?? 0 }
                self.tblViewUserRank.reloadData()
+               Utility.shared.hideActivityIndicator()
             })
         
     }
@@ -52,7 +56,7 @@ class LeaderboardVC: UIViewController ,UITableViewDelegate,UITableViewDataSource
         cell.selectionStyle = .none
         
         let objuser = userList[indexPath.row]
-        cell.lblName.text = objuser.username
+        cell.lblName.text = "\(objuser.username ?? "")  Rank:\(indexPath.row + 1) "
         cell.lblCash.text = "Winings: \(objuser.wings ?? 0) $"
        
         if Auth.auth().currentUser?.uid == objuser.userId

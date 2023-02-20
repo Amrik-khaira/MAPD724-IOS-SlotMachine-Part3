@@ -21,14 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         manageLoginSession(isfromSignup: false)
         guard let _ = (scene as? UIWindowScene) else { return }
     }
-    
+    //MARK: Setup Root controller
     func manageLoginSession(isfromSignup:Bool) {
         guard let window = window else {return}
         var vc = UIViewController()
         let navigationController = UINavigationController(rootViewController: vc)
         
         if Utility.shared.isUserLoggedIn() { // Show Dashboard page
-            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"ViewController") as! ViewController
+            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"UITabBarController") as! UITabBarController
             //vc.isFromSignup = isfromSignup
         } else { // Show login page
             vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() ?? UIViewController()

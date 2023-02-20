@@ -13,20 +13,24 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class LoginVC: UIViewController {
+    //MARK: Variables and connections
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
     }
-    
+    //MARK: Login user
     @IBAction func btnLoginAct(_ sender: Any) {
+        //MARK: validations for user
         if !(Utility.shared.isValidEmail(txtEmail.text ?? "")) {
             Utility.shared.displayPopup(title: "", msg: "Please enter valid email.", VC: self)
         } else if !(Utility.shared.isValidPassword(txtPassword.text ?? "")) {
             Utility.shared.displayPopup(title: "", msg: "Please enter 6 character password.", VC: self)
         }  else  {
-            Auth.auth().signIn(withEmail: txtEmail.text ?? "", password: txtPassword.text ?? "") { (authResult, error) in
+            Utility.shared.showActivityIndicatory(vc: self)
+            Auth.auth().signIn(withEmail: txtEmail.text ?? "", password: txtPassword.text ?? "") { (authResult, error) in // MARK: SignIn user
+                Utility.shared.hideActivityIndicator()
               if let error = error as? NSError {
                 switch AuthErrorCode(rawValue: error.code) {
                 case .emailAlreadyInUse:
@@ -42,7 +46,7 @@ class LoginVC: UIViewController {
                     Utility.shared.displayPopup(title: "Error", msg: "\(error.localizedDescription)", VC: self)
                 }
               } else {
-                print("User signs in successfully")
+                  
                   guard let appDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate else { return }
                   appDelegate.manageLoginSession(isfromSignup: false)
               }

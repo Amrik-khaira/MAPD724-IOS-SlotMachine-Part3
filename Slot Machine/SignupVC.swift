@@ -13,7 +13,7 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class SignupVC: UIViewController {
-
+    //MARK: Variables and connections
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
@@ -27,7 +27,10 @@ class SignupVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    //MARK: Register new user
     @IBAction func btnSignupAct(_ sender: Any) {
+        //MARK: validations for user
         if (txtName.text ?? "" == "") {
             Utility.shared.displayPopup(title: "", msg: "Please enter name.", VC: self)
         } else if !(Utility.shared.isValidEmail(txtEmail.text ?? "")) {
@@ -35,8 +38,10 @@ class SignupVC: UIViewController {
         } else if !(Utility.shared.isValidPassword(txtPassword.text ?? "")) {
             Utility.shared.displayPopup(title: "", msg: "Please enter 6 character password.", VC: self)
         }  else  {
-        Auth.auth().createUser(withEmail: txtEmail.text ?? "", password: txtPassword.text ?? "") { authResult, error in
-          if let error = error as? NSError {
+            Utility.shared.showActivityIndicatory(vc: self)
+            Auth.auth().createUser(withEmail: txtEmail.text ?? "", password: txtPassword.text ?? "") { authResult, error in // MARK: Signup user
+                Utility.shared.hideActivityIndicator()
+            if let error = error as? NSError {
             switch AuthErrorCode(rawValue: error.code) {
             case .emailAlreadyInUse:
                 Utility.shared.displayPopup(title: "", msg: "The email address is already in use by another account.", VC: self)
@@ -51,12 +56,13 @@ class SignupVC: UIViewController {
                 Utility.shared.displayPopup(title: "Error", msg: "\(error.localizedDescription)", VC: self)
             }
           } else {
-            print("User signs up successfully")
+              //MARK: store new user data
               self.ref = Database.database().reference()
               let newUserInfo = Auth.auth().currentUser
               self.ref.child("users/\(newUserInfo?.uid ?? "")").setValue(["username": self.txtName.text ?? "","userId": newUserInfo?.uid ?? "", "email": self.txtEmail.text ?? "", "wallet": 500, "wins": 0]){
                   (error:Error?, ref:DatabaseReference) in
                   if error == nil {
+                      
                       guard let appDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate else { return }
                       appDelegate.manageLoginSession(isfromSignup: true)
                   }

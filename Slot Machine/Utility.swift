@@ -17,8 +17,9 @@ import FirebaseAuth
 class Utility {
     static let shared = Utility()
     var player : AVAudioPlayer?
+    var activityView: UIActivityIndicatorView?
     
-    // play sound accoring to the events
+    //MARK: play sound accoring to the events
     func play(sound name: String,ext:String? = "mp3"){
         guard let url = Bundle.main.url(forResource: name, withExtension: ext) else{
             return
@@ -28,13 +29,14 @@ class Utility {
     }
     
     
-    
+    //MARK: Email RegEx for validation
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
       }
       
+    //MARK: Password validation
       func isValidPassword(_ password: String) -> Bool {
         let minPasswordLength = 6
         return password.count >= minPasswordLength
@@ -50,5 +52,29 @@ class Utility {
     
     func isUserLoggedIn() -> Bool {
       return Auth.auth().currentUser != nil
+    }
+    
+    //MARK: Show loader on controller
+    func showActivityIndicatory(vc:UIViewController) {
+        activityView = UIActivityIndicatorView(style: .large)
+            activityView?.center = vc.view.center
+            vc.view.addSubview(activityView!)
+            activityView?.startAnimating()
+    }
+    
+    //MARK: Hide loader on controller
+    func hideActivityIndicator(){
+        if (activityView != nil){
+            activityView?.stopAnimating()
+        }
+    }
+}
+//MARK: App details
+extension Bundle {
+    var releaseVersionNumber: String? {
+        return infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    var buildVersionNumber: String? {
+        return infoDictionary?["CFBundleVersion"] as? String
     }
 }

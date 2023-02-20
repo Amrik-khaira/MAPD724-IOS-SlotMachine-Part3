@@ -8,5 +8,6 @@ target 'Slot Machine' do
   # Pods for Slot Machine
 pod 'Firebase'
 pod 'Firebase/Auth'
-pod ‘Firebase/Database’
+pod 'Firebase/Database'
+pod 'Firebase/Messaging'
 end

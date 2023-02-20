@@ -13,7 +13,6 @@ import  FirebaseDatabase
 import FirebaseAuth
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
     //MARK: Variables and connections
     @IBOutlet weak var realPickerView: UIPickerView!
     {
@@ -28,8 +27,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var lblCurrentCash: UILabel!
     @IBOutlet weak var btnSpin: UIButton!
     @IBOutlet weak var imgSpin: UIImageView!
+    @IBOutlet weak var lblHighestWining: UILabel!
+    let userNotificationCenter = UNUserNotificationCenter.current()
     var isFromSignup = Bool()
-    let reelImgArr = [UIImage(named: "bell"),UIImage(named: "leaf"),UIImage(named: "heart"),UIImage(named: "seven"),UIImage(named: "dice")]
+   // let reelImgArr = [UIImage(named: "bell"),UIImage(named: "leaf"),UIImage(named: "heart"),UIImage(named: "seven"),UIImage(named: "dice")]
+    let reelImgArr = [UIImage(named: "bell"),UIImage(named: "leaf"),UIImage(named: "heart"),UIImage(named: "seven")]
     var ref = DatabaseReference()
     let newUserInfo = Auth.auth().currentUser
     var highestWin = Int()
@@ -49,32 +51,42 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
+       
         decorate(stepper: betStepper)
         getCurrentUserInfo()
     }
     
+    //MARK: get database according for current user
     func getCurrentUserInfo() {
+        Utility.shared.showActivityIndicatory(vc: self)
         self.ref = Database.database().reference()
        ref.child("users/\(newUserInfo?.uid ?? "")").observeSingleEvent(of: .value, with: { (snapshot) in
         if let dict = snapshot.value as? [String:Any]  {
         print("The value from the database: \(dict)")
            //self.currentMoney = dict["wallet"] as? Int
+            if dict["wallet"] as? Int ?? 0 <= 0
+            {
+                self.btnSpin.isEnabled = false
+                self.imgSpin.alpha = 0.6 // disapper spin clicking
+                Utility.shared.displayPopup(title: "Sorry!", msg: "You have \(dict["wallet"] as? Int ?? 0)$ in wallet.\nPress Reset to continue game.", VC: self)  // no cash
+            }
             self.lblCurrentCash.text = "\(dict["wallet"] as? Int ?? 0)$"
             self.highestWin = dict["wins"] as? Int ?? 0
+            self.lblHighestWining.text = "Highest winnings: \(self.highestWin)$"
+            Utility.shared.hideActivityIndicator()
         }
         })
     }
     
-    @IBAction func btnSettingAct(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LeaderboardVC") as! LeaderboardVC
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+   //MARK: update database according to result
     func UpdateFirebase(wallet: Int, wins: Int) {
+        Utility.shared.showActivityIndicatory(vc: self)
         highestWin = highestWin + wins
         self.ref = Database.database().reference()
         self.ref.child("users/\(newUserInfo?.uid ?? "")").updateChildValues(["wallet": wallet,"wins": highestWin]){
             (error:Error?, ref:DatabaseReference) in
-            
+            self.getCurrentUserInfo()
+            Utility.shared.hideActivityIndicator()
         }
     }
 
@@ -134,6 +146,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             UpdateFirebase(wallet: Int(currentMoney + 200) + (betAmount * 2), wins: 200 + betAmount * 2)
             betStepper.maximumValue = Double(currentMoney)
             lblBetResult.text = "YOU WON \(200 + betAmount * 2)$"
+            sendNotification()
             lblCurrentCash.text = "\(Int(currentMoney + 200) + (betAmount * 2))$"
             //Open celebration controller
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "CongratulationVC") as! CongratulationVC
@@ -161,7 +174,26 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             self.lblBetResult.text = ""
         }
     }
+        //MARK: Fire notification
+    func sendNotification() {
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "Slot Machine"
+        notificationContent.body = "YOU WON \(200 + betAmount * 2)$"
         
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1,
+                                                        repeats: false)
+        let request = UNNotificationRequest(identifier: "wining",
+                                            content: notificationContent,
+                                            trigger: trigger)
+        
+        userNotificationCenter.add(request) { (error) in
+            if let error = error {
+                print("Notification Error: ", error)
+            }
+        }
+    }
+    
+    
     //MARK: button Spin Action Handler
     @IBAction func btnSpinAction(_ sender: UIButton) {
         Utility.shared.play(sound: "Spin")
